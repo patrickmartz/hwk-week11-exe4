@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meal Charge Calculator</title>
+
+<style>
+     @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+h1 {
+    font-family: 'Lobster', cursive;
+    font: 35px;
+
+    color: black;
+}
+
+
+    
+
+    body{
+        background: linear-gradient(to right, rgb(255, 0, 13) 0%, navy);
+        
+    }
+
+
+    img{
+        width: 450px;
+        height: auto;
+        border-radius: 5rem;
+        width: 30rem;
+        height: 15rem;
+      
+    }
+
+
+    .tableclass{
+        border: solid white 5px;
+    }
+
+    a:link,
+    a:visited {
+        font-weight: bold;
+        text-decoration: none;
+        color: white;
+    }
+
+
+
+</style>
+
+
+</head>
+
+
+
+<body>
+
+    <table class="tableclass">
+    
+    <tr>
+
+    <td>
+
+    <h1>Meal Charge Calculation</h1>
+    <p>Calculate total meal cost. Tax is 8.25% of meal cost. Tip is 15% of meal cost.
+        Total meal cost is equal to the meal cost plus the tax and plus the tip.
+    </p>
+
+    
+        
+    
+    
+    <table>
+
+        <tr>
+            <td>Enter Meal Cost:</td>
+            <td><input name="costPerGallonfm" size="5"><br></td>
+            </tr>
+    
+
+       
+
+    <tr>
+
+    <td id="display"></td>
+
+    <td>
+    
+
+    <form name="theform">
+
+    <table>
+
+        <p><strong>Description Price</strong></p>
+
+        </td>
+        <td>Meal Cost:</td>
+        <td><input name="mealCostfm" size="5"><br></td>
+        </tr>
+
+        <tr>
+        <td>Tax: (8.25%)</td>
+        <td><input name="Taxfm" size="5"><br></td>
+        </tr>
+
+        <tr>
+        <td>Tip (15%):</td>
+        <td><input name="Tipfm" size="5"><br></td>
+        </tr>
+
+        
+        <tr>
+        <td>Total:</td>
+        <td ><h2 id="finalanswer" size="5"></h2></td>
+        </tr>
+
+        <tr>
+        <td colspan="2"><input type="button" name="calc" value="Calculate" onClick="calculate();">
+        <input type="button" name="clear" value="Clear" onClick="clearinfo();"></td>
+        </tr>
+
+    </table>
+    </form>
+
+
+    </td>
+    </tr>
+    </table>
+
+    <script>
+    // declare the calculate function
+        function calculate() {
+            //declare constants
+            const tax = .0825;
+            const tip = .15;
+
+            //declare the variables
+            var mealcost; 
+            var tax; 
+            var tip;
+ 
+
+            // Get the values from the text fields
+            tax = parseInt(document.theform.mealCostfm.value);
+            tip = parseFloat(document.theform.taxfm.value);
+            
+
+            // Calculate and display daily driving cost
+            total = parseFloat(mealcost + tax + tip);
+
+            document.querySelector('h2').innerHTML = "$ " + total.toFixed(2);
+
+        }
+
+        function clearinfo(){
+            document.theform.mealCostfm.value = " ";
+            document.theform.taxfm.value = " ";
+            document.theform.tipfm.value = " ";
+            
+
+            document.getElementById("finalanswer").innerHTML = " ";
+
+            document.theform.enterMealCostfm.focus();
+
+        
+        }
+
+        function getImages() {
+
+
+            document.theform.mealCost.focus();
+            
+            //create the images array
+            images =new Array(5);
+
+            // get the element by ID
+            display = document.getElementById("display");
+
+            // intitialize the arrays with images
+            images[0] = "<img src='meal1.jpg' alt='image of meal 1'>";
+            images[1] = "<img src='meal2.jpg' alt='image of meal 2'>";
+            images[2] = "<img src='meal3.jpg' alt='image of meal 3'>";
+            images[3] = "<img src='meal4.jpg' alt='image of meal 4'>";
+            images[4] = "<img src='meal5.jpg' alt='image of meal 5'>";
+
+            // get a random index into the arrays
+            i = Math.floor(Math.random()  * images.length);
+
+            //display the image to the page
+            display.innerHTML = images[i];
+
+        }
+
+        getImages();
+
+    </script>
+</td>
+</tr>
+</table>
+
+
+
+<a href="http://csnet.southtexascollege.edu/localuser/pmartinez_6381/">Go Back To Homepage</a><br>
+<strong>Patricio Martinez Jr</strong>
+</body>
+</html>
